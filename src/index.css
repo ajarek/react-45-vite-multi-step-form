@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
 
 :root {
-  --Marine-blue: hsl(213, 96%, 18%);
+  --Marine-blue: #02295a;
   --Purplish-blue: #473dff;
   --Pastel-blue: hsl(228, 100%, 84%);
   --Light-blue: hsl(206, 94%, 87%);
   --Strawberry-red: hsl(354, 84%, 57%);
-  --Cool-gray: hsl(231, 11%, 63%);
+  --Cool-gray: #9699ab;
   --Light-gray: hsl(229, 24%, 87%);
   --Magnolia: hsl(217, 100%, 97%);
   --Alabaster: hsl(231, 100%, 99%);
@@ -32,7 +32,7 @@ body {
   grid-template-columns: 1fr 3fr;
 }
 .navigation {
-  background-image:url(/public/bg.svg);
+  background-image: url(/public/bg.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -65,13 +65,13 @@ body {
 .navigation .link .step h3 {
   letter-spacing: 1px;
 }
-.link:focus .nr {
-  background-color: var(--Light-blue);
-}
-.info {
+
+.info,
+.plan {
   padding: 2rem 6rem;
 }
-.info .title {
+.info .title,
+.plan .title {
   margin-bottom: 2rem;
 }
 .info h1 {
@@ -99,7 +99,8 @@ form input {
 input:focus {
   background-color: var(--Light-blue);
 }
-form input[type='submit'] {
+form input[type='submit'],
+.next {
   color: var(--White);
   width: 20%;
   font-size: 1rem;
@@ -115,4 +116,78 @@ form input[type='submit']:hover {
 }
 form p {
   color: red;
+}
+.wrapper-card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.card {
+  min-height: 15rem;
+  border: 1px solid var(--Purplish-blue);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.card:hover {
+  border: 2px solid var(--Marine-blue);
+}
+
+.button button {
+  background-color: transparent;
+  border: none;
+}
+.switch {
+  width: 100px;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 25px;
+  padding: 0 2px;
+  cursor: pointer;
+  background-color: var(--Marine-blue);
+  transition: all 0.8s ease-in-out;
+}
+.switch span {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--White);
+}
+.toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8rem;
+}
+.action{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+}
+.next {
+  color: var(--White);
+  width: 20%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--Marine-blue);
+  height: 40px;
+  border-radius: 5px;
+  user-select: none;
+
+}
+.back{
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
