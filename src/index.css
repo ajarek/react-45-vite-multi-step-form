@@ -5,7 +5,7 @@
   --Purplish-blue: #473dff;
   --Pastel-blue: hsl(228, 100%, 84%);
   --Light-blue: hsl(206, 94%, 87%);
-  --Strawberry-red: hsl(354, 84%, 57%);
+  --Strawberry-red: #ed3548;
   --Cool-gray: #9699ab;
   --Light-gray: hsl(229, 24%, 87%);
   --Magnolia: hsl(217, 100%, 97%);
@@ -67,11 +67,15 @@ body {
 }
 
 .info,
-.plan {
+.plan,
+.addons,
+.summary {
   padding: 2rem 6rem;
 }
 .info .title,
-.plan .title {
+.plan .title,
+.addons .title,
+.summary .title {
   margin-bottom: 2rem;
 }
 .info h1 {
@@ -119,7 +123,6 @@ form p {
 }
 .wrapper-card {
   width: 100%;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -136,7 +139,7 @@ form p {
   cursor: pointer;
 }
 .card:hover {
-  border: 2px solid var(--Marine-blue);
+  border: 2px solid var(--Strawberry-red);
 }
 
 .button button {
@@ -193,4 +196,46 @@ form p {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.item-add-ons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border:1px solid var(--Light-gray);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+  .item-add-ons:hover {
+  border:2px solid var(--Marine-blue);
+}
+.item-add-ons .add-ons-info{
+  width: 40%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+.thank-you{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4rem;
+}
+.thank-you .ok{
+  padding: 1rem;
+  border: 1rem solid var(--Strawberry-red);
+  border-radius: 50%;
+  font-size: 3rem;
+}
+.wrapper-summary{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
