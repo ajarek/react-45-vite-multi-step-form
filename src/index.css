@@ -177,12 +177,15 @@ form p {
   color: var(--White);
   width: 20%;
   font-size: 1rem;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   background-color: var(--Marine-blue);
   height: 40px;
   border-radius: 5px;
   user-select: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .back{

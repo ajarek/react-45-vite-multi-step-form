@@ -1,29 +1,23 @@
-import {React, useState,useContext, useEffect} from 'react'
+import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../App'
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from 'react-router-dom'
 import { Card } from '../components/Card'
 import { Toggle } from '../components/Toggle'
 const Plan = () => {
-  
-  const[back, setBack]= useState(false)
-
-  
-    
-      const goBack=() => {
-       
-          setBack(true)
-          
-         
-      }
-  
-    
-  
-
+  const { nameUser, setNameUser } = useContext(AppContext)
+  const [back, setBack] = useState(false)
+  const goBack = () => {
+    setNameUser(null)
+    setBack(true)
+  }
   return (
     <div className='plan'>
       {back && (
-          <Navigate to="/" replace={true} />
-        )}
+        <Navigate
+          to='/'
+          replace={true}
+        />
+      )}
       <div className='title'>
         <h1>Select your plan</h1>
         <p>You have the option of monthly or yearly biling</p>
@@ -45,16 +39,17 @@ const Plan = () => {
           price={15}
         />
       </div>
-      
+
       <Toggle />
-      <div className="action">
+      <div className='action'>
         <button
-         className='back'
-         onClick={()=>goBack()}
-        >Go Back</button>
-        <button className='next' >Next Step</button>
+          className='back'
+          onClick={() => goBack()}
+        >
+          Go Back
+        </button>
+        <NavLink className='next' to='/addons'>Next Step</NavLink>
       </div>
-      
     </div>
   )
 }
