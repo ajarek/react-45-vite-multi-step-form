@@ -4,7 +4,7 @@ import { Navigate, NavLink } from 'react-router-dom'
 import { Card } from '../components/Card'
 import { Toggle } from '../components/Toggle'
 const Plan = () => {
-  const { nameUser, setNameUser } = useContext(AppContext)
+  const { nameUser, setNameUser, statePlan } = useContext(AppContext)
   const [back, setBack] = useState(false)
   const goBack = () => {
     setNameUser(null)
@@ -27,16 +27,19 @@ const Plan = () => {
           icon={'/public/icon-arcade.svg'}
           plan={'Arcade'}
           price={9}
+          className={statePlan === 'Arcade' ? 'card active' : 'card'}
         />
         <Card
           icon={'/public/icon-advanced.svg'}
           plan={'Advanced'}
           price={12}
+          className={statePlan === 'Advanced' ? 'card active' : 'card'}
         />
         <Card
           icon={'/public/icon-pro.svg'}
           plan={'Pro'}
           price={15}
+          className={statePlan === 'Pro' ? 'card active' : 'card'}
         />
       </div>
 
@@ -48,7 +51,12 @@ const Plan = () => {
         >
           Go Back
         </button>
-        <NavLink className='next' to='/addons'>Next Step</NavLink>
+        <NavLink
+          className='next'
+          to='/addons'
+        >
+          Next Step
+        </NavLink>
       </div>
     </div>
   )

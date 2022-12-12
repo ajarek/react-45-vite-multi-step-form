@@ -239,6 +239,6 @@ align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-.border{
-  background-color: var(--Light-blue);
+.active{
+  background-color: var(--Pastel-blue);
 }

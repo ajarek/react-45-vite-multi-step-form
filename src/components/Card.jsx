@@ -1,7 +1,7 @@
 import { React, useState, useContext } from 'react'
 import { AppContext } from '../App'
 
-export const Card = ({ icon, plan, price }) => {
+export const Card = ({ icon, plan, price, className }) => {
   const {
     deadline,
     setDeadline,
@@ -14,14 +14,10 @@ export const Card = ({ icon, plan, price }) => {
   const addCard = (e) => {
     useStatePlan(plan)
     useStatePrice(price)
-    const element=e.target.closest('.card')
-    if(element.className!=='card border') 
-     {element.className='card border'}
-     else{element.className='card'}
   }
   return (
     <div
-      className='card'
+      className={className}
       onClick={(e) => addCard(e)}
     >
       <div className='icon'>
