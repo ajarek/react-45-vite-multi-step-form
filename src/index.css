@@ -139,7 +139,7 @@ form p {
   cursor: pointer;
 }
 .card:hover {
-  border: 2px solid var(--Strawberry-red);
+  border: 2px solid var(--Purplish-blue);
 }
 
 .button button {
@@ -238,4 +238,7 @@ align-items: flex-start;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+.border{
+  background-color: var(--Light-blue);
 }

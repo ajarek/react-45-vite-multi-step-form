@@ -10,15 +10,19 @@ export const Card = ({ icon, plan, price }) => {
     statePrice,
     useStatePrice,
   } = useContext(AppContext)
-  const addCard = () => {
+
+  const addCard = (e) => {
     useStatePlan(plan)
     useStatePrice(price)
+    const element=e.target.closest('.card')
+    if(element.className!=='card border') 
+     {element.className='card border'}
+     else{element.className='card'}
   }
   return (
     <div
       className='card'
-      onClick={() => addCard()}
-     
+      onClick={(e) => addCard(e)}
     >
       <div className='icon'>
         <img
