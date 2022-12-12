@@ -14,6 +14,10 @@ function App() {
   const [nameUser, setNameUser] = useState(null)
   const [statePlan, useStatePlan] = useState('')
   const [statePrice, useStatePrice] = useState('')
+ 
+  const [stateOnline, useStateOnline] = useState(false)
+  const [stateLarge, useStateLarge] = useState(false)
+  const [stateCustomizable, useStateCustomizable] = useState(false)
 
   return (
     <div className='App'>
@@ -27,6 +31,14 @@ function App() {
           useStatePlan,
           statePrice,
           useStatePrice,
+         
+
+          stateOnline,
+          useStateOnline,
+          stateLarge,
+          useStateLarge,
+          stateCustomizable,
+          useStateCustomizable,
         }}
       >
         <Navigation />

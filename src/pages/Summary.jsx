@@ -3,7 +3,20 @@ import { AppContext } from '../App'
 import { Navigate, NavLink } from 'react-router-dom'
 const Summary = () => {
   const [back, setBack] = useState(false)
-  const {deadline, setDeadline,statePlan,useStatePlan,statePrice,useStatePrice} = useContext(AppContext)
+  const {
+    deadline,
+    setDeadline,
+    statePlan,
+    useStatePlan,
+    statePrice,
+    useStatePrice,
+    stateOnline,
+    useStateOnline,
+    stateLarge,
+    useStateLarge,
+    stateCustomizable,
+    useStateCustomizable,
+  } = useContext(AppContext)
   const goBack = () => {
     setBack(true)
   }
@@ -19,21 +32,41 @@ const Summary = () => {
         <h1>Finishing up</h1>
         <p>Duble-check everything looks OK before confirming</p>
       </div>
-      <div className="wrapper-summary">
+      <div className='wrapper-summary'>
         <div>
-        <h3>{statePlan} ({deadline?'Monthly':'Yearly'})</h3>
-        <NavLink to={'/plan'}>Change</NavLink>
+          <h3>
+            {statePlan} ({deadline ? 'Monthly' : 'Yearly'})
+          </h3>
+          <NavLink to={'/plan'}>Change</NavLink>
         </div>
-        <h3>${deadline?statePrice:statePrice*10}/{deadline?'mo':'yr'}</h3>
+        <h3>
+          ${deadline ? statePrice : statePrice * 10}/{deadline ? 'mo' : 'yr'}
+        </h3>
       </div>
-      <div className="wrapper-summary">
-        <p>Online service</p><p>+$10/{deadline?'mo':'yr'}</p>
+      {stateOnline?(
+      <div className='wrapper-summary'>
+        <p>Online service</p>
+        <p>+${deadline ? 1 : 10}/{deadline ? 'mo' : 'yr'}</p>
       </div>
-      <div className="wrapper-summary">
-        <p>Larger service</p><p>+$20/{deadline?'mo':'yr'}</p>
+      ):null
+     }
+     {stateLarge?(
+      <div className='wrapper-summary'>
+        <p>Larger service</p>
+        <p>+${deadline ? 2 : 20}/{deadline ? 'mo' : 'yr'}</p>
       </div>
-      <div className="wrapper-summary">
-        <p>Total</p><h3>+$120/{deadline?'mo':'yr'}</h3>
+     ):null
+      }
+      {stateCustomizable?(
+      <div className='wrapper-summary'>
+        <p>Customizable profile</p>
+        <p>+${deadline ? 2 : 20}/{deadline ? 'mo' : 'yr'}</p>
+      </div>
+     ):null
+      }
+      <div className='wrapper-summary'>
+        <p>Total</p>
+        <h3>+$120/{deadline ? 'mo' : 'yr'}</h3>
       </div>
       <div className='action'>
         <button
@@ -41,9 +74,14 @@ const Summary = () => {
           onClick={() => goBack()}
         >
           Go Back
-        </button> 
-        <NavLink className='next' to='/thankyou'>Confirm</NavLink>
-    </div>
+        </button>
+        <NavLink
+          className='next'
+          to='/thankyou'
+        >
+          Confirm
+        </NavLink>
+      </div>
     </div>
   )
 }

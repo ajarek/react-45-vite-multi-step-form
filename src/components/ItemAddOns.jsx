@@ -1,13 +1,13 @@
 import  { React, useState, useContext } from 'react'
 import { AppContext } from '../App'
 
-export const ItemAddOns = ({info, desc,price}) => {
+export const ItemAddOns = ({info, desc,price,onClick}) => {
   const {deadline, setDeadline} = useContext(AppContext)
+
+
+
   return (
-    <div className='item-add-ons'>
-      <div className="checkbox">
-        <input type="checkbox" name="" id="" />
-      </div>
+    <div className='item-add-ons' onClick={onClick}>
       <div className="add-ons-info">
         <h3>{info}</h3>
         <p>{desc}</p>

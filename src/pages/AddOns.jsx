@@ -1,11 +1,32 @@
-import{ React, useState }from 'react'
+import { React, useState, useContext, useEffect } from 'react'
+import { AppContext } from '../App'
 import ItemAddOns from '../components/ItemAddOns'
 import { Navigate, NavLink } from 'react-router-dom'
 const AddOns = () => {
   const [back, setBack] = useState(false)
+  const {
+    stateOnline,
+    useStateOnline,
+    stateLarge,
+    useStateLarge,
+    stateCustomizable,
+    useStateCustomizable,
+  } = useContext(AppContext)
+
+  const onLine = () => {
+    useStateOnline(!stateOnline)
+  }
+  const large = () => {
+    useStateLarge(!stateLarge)
+  }
+  const customizable = () => {
+    useStateCustomizable(!stateCustomizable)
+  }
+
   const goBack = () => {
     setBack(true)
   }
+  
   return (
     <div className='addons'>
       {back && (
@@ -19,21 +40,24 @@ const AddOns = () => {
         <p>Add-ons help enhance your gaming experience</p>
       </div>
       <div className='wrapper-addons'>
-      <ItemAddOns
-      info={'Online service'}
-      desc={'Access to multiplayer games'}
-      price={1}
-      />
-      <ItemAddOns
-      info={'Large service'}
-      desc={'Extra 1TB of cloud save'}
-      price={2}
-      />
-      <ItemAddOns
-      info={'Customizable profile'}
-      desc={'Custom thema on your profile'}
-      price={2}
-      />
+        <ItemAddOns
+          info={'Online service'}
+          desc={'Access to multiplayer games'}
+          price={1}
+          onClick={onLine}
+        />
+        <ItemAddOns
+          info={'Large service'}
+          desc={'Extra 1TB of cloud save'}
+          price={2}
+          onClick={large}
+        />
+        <ItemAddOns
+          info={'Customizable profile'}
+          desc={'Custom thema on your profile'}
+          price={2}
+          onClick={customizable}
+        />
       </div>
       <div className='action'>
         <button
@@ -42,7 +66,12 @@ const AddOns = () => {
         >
           Go Back
         </button>
-        <NavLink className='next' to='/summary'>Next Step</NavLink>
+        <NavLink
+          className='next'
+          to='/summary'
+        >
+          Next Step
+        </NavLink>
       </div>
     </div>
   )
