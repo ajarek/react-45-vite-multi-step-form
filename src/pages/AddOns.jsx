@@ -45,18 +45,21 @@ const AddOns = () => {
           desc={'Access to multiplayer games'}
           price={1}
           onClick={onLine}
+          className={stateOnline?'item-add-ons active':'item-add-ons'}
         />
         <ItemAddOns
           info={'Large service'}
           desc={'Extra 1TB of cloud save'}
           price={2}
           onClick={large}
+          className={stateLarge?'item-add-ons active':'item-add-ons'}
         />
         <ItemAddOns
           info={'Customizable profile'}
           desc={'Custom thema on your profile'}
           price={2}
           onClick={customizable}
+          className={stateCustomizable?'item-add-ons active':'item-add-ons'}
         />
       </div>
       <div className='action'>

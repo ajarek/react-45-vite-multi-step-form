@@ -3,6 +3,9 @@ import { AppContext } from '../App'
 import { Navigate, NavLink } from 'react-router-dom'
 const Summary = () => {
   const [back, setBack] = useState(false)
+  const [total,setTotal]=useState([0])
+
+
   const {
     deadline,
     setDeadline,
@@ -20,6 +23,14 @@ const Summary = () => {
   const goBack = () => {
     setBack(true)
   }
+  useEffect(()=>{
+    {deadline ? setTotal([...total,statePrice]) : setTotal([...total,statePrice * 10])}
+
+    {stateOnline?deadline ? total.push(1):total.push(10):total.push(0)}
+    { stateLarge?deadline ? total.push(2):total.push(20):total.push(0)}
+    {stateCustomizable?deadline ? total.push(2):total.push(20):total.push(0)}
+  },[])
+
   return (
     <div className='summary'>
       {back && (
@@ -46,7 +57,7 @@ const Summary = () => {
       {stateOnline?(
       <div className='wrapper-summary'>
         <p>Online service</p>
-        <p>+${deadline ? 1 : 10}/{deadline ? 'mo' : 'yr'}</p>
+        <p>${deadline ? 1 : 10}/{deadline ? 'mo' : 'yr'}</p>
       </div>
       ):null
      }
@@ -66,7 +77,7 @@ const Summary = () => {
       }
       <div className='wrapper-summary'>
         <p>Total</p>
-        <h3>+$120/{deadline ? 'mo' : 'yr'}</h3>
+        <h3>${total.reduce((a,b)=>a+b)}/{deadline ? 'mo' : 'yr'}</h3>
       </div>
       <div className='action'>
         <button

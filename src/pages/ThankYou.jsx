@@ -1,10 +1,15 @@
-import React from 'react'
+import { React, useState, useContext, useEffect } from 'react'
+import {  NavLink } from 'react-router-dom'
+import { AppContext } from '../App'
 
 const ThankYou = () => {
+  const {nameUser} = useContext(AppContext)
   return (
     <div className='thank-you'>
+       <NavLink to='/' style={{textDecoration:'none'}}>
       <div className='ok'>✔️</div>
-      <h3>Thank you</h3>
+      </NavLink>
+      <h3>Thank you {nameUser}</h3>
       <p>
         Thanks for confirming your subscription! We hope you have fun using our
         platform.
