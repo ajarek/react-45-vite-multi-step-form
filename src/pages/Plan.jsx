@@ -4,7 +4,7 @@ import { Navigate, NavLink } from 'react-router-dom'
 import { Card } from '../components/Card'
 import { Toggle } from '../components/Toggle'
 const Plan = () => {
-  const { nameUser, setNameUser, statePlan } = useContext(AppContext)
+  const { setNameUser, statePlan } = useContext(AppContext)
   const [back, setBack] = useState(false)
   const goBack = () => {
     setNameUser(null)

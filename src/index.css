@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --Marine-blue: #02295a;
   --Purplish-blue: #473dff;
@@ -106,7 +110,7 @@ input:focus {
 form input[type='submit'],
 .next {
   color: var(--White);
-  width: 20%;
+  width: 30%;
   font-size: 1rem;
   padding: 0;
   border: none;
@@ -170,7 +174,7 @@ form p {
   align-items: center;
   padding: 0 8rem;
 }
-.action{
+.action {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -189,56 +193,117 @@ form p {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.back{
+.back {
   font-size: 1rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.item-add-ons{
+.item-add-ons {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  border:1px solid var(--Light-gray);
+  border: 1px solid var(--Light-gray);
   border-radius: 10px;
   padding: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-  .item-add-ons:hover {
-  border:2px solid var(--Marine-blue);
+.item-add-ons:hover {
+  border: 2px solid var(--Marine-blue);
 }
-.item-add-ons .add-ons-info{
+.item-add-ons .add-ons-info {
   width: 40%;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.thank-you{
+.thank-you {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   padding: 4rem;
 }
-.thank-you .ok{
+.thank-you .ok {
   padding: 1rem;
   border: 1rem solid var(--Strawberry-red);
   border-radius: 50%;
   font-size: 3rem;
 }
-.wrapper-summary{
+.wrapper-summary {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-.active{
+.active {
   background-color: var(--Pastel-blue);
+}
+@media (max-width: 930px) {
+  .App {
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+  }
+  .navigation {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .navigation .link .step h4 {
+    color: var(--White);
+  }
+
+  .toggle {
+    padding: 0rem 4rem;
+  }
+  .next {
+    width: 30%;
+  }
+  .thank-you {
+    height: 75vh;
+  }
+}
+@media (max-width: 600px) {
+  .App {
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .info,
+  .plan,
+  .addons,
+  .summary {
+    padding: 0.5rem;
+  }
+  .info .title,
+  .plan .title,
+  .addons .title,
+  .summary .title {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .wrapper-card {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+  }
+  .card {
+    height: auto;
+  }
+  .toggle {
+    padding: 0rem 1rem;
+  }
+  .thank-you {
+    padding: 0;
+  }
 }

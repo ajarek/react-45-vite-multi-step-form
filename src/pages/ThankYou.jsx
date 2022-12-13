@@ -1,13 +1,16 @@
-import { React, useState, useContext, useEffect } from 'react'
-import {  NavLink } from 'react-router-dom'
+import { React, useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { AppContext } from '../App'
 
 const ThankYou = () => {
-  const {nameUser} = useContext(AppContext)
+  const { nameUser } = useContext(AppContext)
   return (
     <div className='thank-you'>
-       <NavLink to='/' style={{textDecoration:'none'}}>
-      <div className='ok'>✔️</div>
+      <NavLink
+        to='/'
+        style={{ textDecoration: 'none' }}
+      >
+        <div className='ok'>✔️</div>
       </NavLink>
       <h3>Thank you {nameUser}</h3>
       <p>
